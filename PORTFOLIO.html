@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Titus Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h2 class="logo">PORTFOLIO</h2>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a onclick="loadPage('home')">Home</a></li>
+          <li><a onclick="loadPage('about')">About</a></li>
+          <li><a onclick="loadPage('projects')">Projects</a></li>
+          <li><a onclick="loadPage('contact')">Contact</a></li>
+        </ul>
+
+        <div class="menu" onclick="toggleMenu()">☰</div>
+      </nav>
+    </header>
+
+    <!-- CONTENT CHANGES HERE -->
+
+    <div id="content"></div>
+
+    <script>
+      /* PAGE CONTENT */
+
+      const pages = {
+        home: `
+<div class="hero">
+  <section class="hero">
+    <div class="hero-img">
+<img src="image/imgi.png" alt="image of me">
+
+
+</div>
+
+
+<div class="hero-text">
+
+<h1><span>I'm Brian Shirandula</span></h1>
+
+<h3>Electrical & Telecommunication Engineering student</h3>
+<a href="#"><i class="fas fa-map-marker-alt"></i></a> <span class="mmu">Multmedia university of kenya</span>
+
+<p>Passionate 2nd-year Electrical Engineering student focused on designing and building practical, reliable systems. Dedicated to creating efficient energy and electronic solutions that address real-world challenges, with a strong commitment to empowering African communities through innovative and sustainable engineering.</p>
+
+
+
+<button class="project" onclick="loadPage('projects')">View  My Projects</button>
+
+
+<div class="social">
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fas fa-envelope"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+
+</div>
+
+</div>
+
+
+
+
+</section>
+</div>
+`,
+
+        about: `
+<h1>About Me</h1>
+<p class="about-p">
+I am an Electrical Engineering student learning circuit design, electronics, and power systems. I enjoy building and testing electrical systems, working with hardware, and solving engineering problems. I’m passionate about applying my skills to develop practical and efficient solutions for real-world challenges.
+</p>
+`,
+
+        projects: `
+<h1>My Projects</h1>
+
+<div class="grid">
+
+<div class="card">
+<h3>Smart Home Lighting System</h3>
+<p>Designed and built an automated lighting system using sensors and a microcontroller (e.g., Arduino). The system turns lights on/off based on motion or ambient light levels, improving energy efficiency.</p>
+</div>
+
+<div class="card">
+<h3>Solar Power Monitoring System</h3>
+<p>Developed a system to monitor voltage, current, and power output of a solar panel setup. Displayed real-time data using an LCD or a web dashboard to analyze energy usage and efficiency.</p>
+</div>
+
+<div class="card">
+<h3>Automatic Water Level Controller</h3>
+<p>Built a circuit that detects water levels in a tank and automatically switches a pump on/off. Helps prevent overflow and dry running, making it practical for home or agricultural use.</p>
+</div>
+
+</div>
+`,
+
+        contact: `
+<h1>Contact Me</h1>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button class="bt" submit">Send</button>
+
+</form>
+`,
+      };
+
+      /* LOAD PAGE FUNCTION */
+
+      function loadPage(page) {
+        document.getElementById("content").innerHTML = pages[page];
+      }
+
+      /* MOBILE MENU */
+
+      function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+
+        if (nav.style.display === "flex") {
+          nav.style.display = "none";
+        } else {
+          nav.style.display = "flex";
+        }
+      }
+
+      /* LOAD HOME BY DEFAULT */
+
+      loadPage("home");
+    </script>
+  </body>
+</html>
